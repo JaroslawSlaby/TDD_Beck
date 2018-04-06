@@ -3,11 +3,14 @@ package money;
 public class Franc extends Money {
 
     public Franc(int amount, String currency) {
-        this.amount = amount;
-        this.currency = currency;
+        super(amount, currency);
     }
 
-    public Franc times(int multiplier) {
-        return Money.franc(amount * multiplier);
+//    public Money times(int multiplier) {
+//        return Money.franc(amount * multiplier);
+//    }
+
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
     }
 }
