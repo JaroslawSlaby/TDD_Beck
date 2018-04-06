@@ -4,12 +4,28 @@ import java.util.Objects;
 
 public class Money {
 
-    int amount;
-    String currency;
+    private int amount;
+    private String currency;
 
     public Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
+    }
+
+    public static Money dollar(int amount) {
+        return new Money(amount, "USD");
+    }
+
+    public static Money franc(int amount) {
+        return new Money(amount, "CHF");
+    }
+
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
+    public String currency() {
+        return currency;
     }
 
     @Override
@@ -26,20 +42,11 @@ public class Money {
         return Objects.hash(amount);
     }
 
-    public static Dollar dollar(int amount) {
-        return new Dollar(amount, "USD");
+    @Override
+    public String toString() {
+        return "Money{" +
+                "amount=" + amount +
+                ", currency='" + currency + '\'' +
+                '}';
     }
-
-    public static Franc franc(int amount) {
-        return new Franc(amount, "CHF");
-    }
-
-    public Money times(int multiplier) {
-        return null;
-    }
-
-    public String currency() {
-        return currency;
-    }
-
 }
