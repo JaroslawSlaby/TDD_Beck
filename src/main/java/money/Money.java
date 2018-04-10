@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Money implements Expression {
 
-    private int amount;
-    private String currency;
+    int amount;
+    String currency;
 
     public Money(int amount, String currency) {
         this.amount = amount;
@@ -30,6 +30,10 @@ public class Money implements Expression {
 
     public String currency() {
         return currency;
+    }
+
+    public Money reduce(String to) {
+        return this;
     }
 
     @Override
