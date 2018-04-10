@@ -2,7 +2,7 @@ package money;
 
 import java.util.Objects;
 
-public class Money {
+public class Money implements Expression {
 
     private int amount;
     private String currency;
@@ -22,6 +22,10 @@ public class Money {
 
     public Money times(int multiplier) {
         return new Money(amount * multiplier, currency);
+    }
+
+    public Expression plus(Money addend) {
+        return new Sum(this, addend);
     }
 
     public String currency() {
